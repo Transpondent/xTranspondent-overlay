@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>xtranspondent — overlay</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Background loop (optional alpha) -->
+  <video id="bgLoop" class="bg" autoplay loop muted playsinline preload="auto">
+    <source src="assets/bg_loop.webm" type="video/webm">
+  </video>
+
+  <!-- Gameplay frame sits above BG -->
+  <video id="gameFrame" class="game-frame" autoplay loop muted playsinline preload="auto">
+    <source src="assets/gameplay_frame.webm" type="video/webm">
+  </video>
+
+  <!-- Webcam placeholder (we draw an SVG container so stream software can crop) -->
+  <div id="webcamWrap">
+    <video id="webcamFrame" autoplay loop muted playsinline preload="auto">
+      <source src="assets/webcam_frame.webm" type="video/webm">
+    </video>
+    <div id="camCutout" aria-hidden="true"></div>
+  </div>
+
+  <!-- Chat / info area -->
+  <aside id="infoPanel">
+    <div id="streamerName">xtranspondent</div>
+    <div id="recentList">
+      <div class="entry">recent: —</div>
+    </div>
+  </aside>
+
+  <!-- Alert container -->
+  <div id="alertContainer" aria-live="polite"></div>
+
+  <!-- Stinger overlay (hidden until triggered) -->
+  <video id="stinger" class="stinger" preload="auto">
+    <source src="assets/stinger.webm" type="video/webm">
+  </video>
+
+  <audio id="alertSnd" src="assets/alert_crackle.mp3" preload="auto"></audio>
+
+  <script src="overlay.js"></script>
+</body>
+</html>
